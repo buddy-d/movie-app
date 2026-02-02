@@ -3,7 +3,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Load dataset
-df = pd.read_csv("movies.csv")
+import os
+movies = pd.read_csv(os.path.join(os.getcwd(), "movies.csv"))
 
 # Convert text to numbers using TF-IDF
 tfidf = TfidfVectorizer(stop_words='english')
