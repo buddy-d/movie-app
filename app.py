@@ -4,7 +4,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # Load dataset
 import os
-movies = pd.read_csv(os.path.join(os.getcwd(), "movies.csv"))
+import pandas as pd
+
+# get absolute path of movies.csv in current folder
+csv_path = os.path.join(os.getcwd(), "movies.csv")
+movies = pd.read_csv(csv_path)
+
 
 # Convert text to numbers using TF-IDF
 tfidf = TfidfVectorizer(stop_words='english')
