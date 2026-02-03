@@ -43,4 +43,4 @@ if st.button("Recommend"):
 
 #Footer
 st.markdown("---")
-st.markdown("🚀 Built by DK | AIML Mini Project")
+st.markdown("🚀 Built by DK Mini Project")
