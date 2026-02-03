@@ -4,8 +4,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Page title
-st.title("🎬 Movie Recommendation System")
-
+st.set_page_config(
+    page_title="Movie Recommender",
+    page_icon="🎬",
+    layout="centered"
+)
 # Load data
 df = pd.read_csv("movies.csv")
 
@@ -24,6 +27,10 @@ similarity = cosine_similarity(tfidf_matrix)
 # Movie selection
 movie_name = st.selectbox("Select a movie", df["title"])
 
+# Description
+st.markdown("### Movie Description")
+st.info(df[df["title"] == movie_name]["description"].values[0])
+
 # Recommendation logic
 if st.button("Recommend"):
     movie_index = df[df["title"] == movie_name].index[0]
@@ -33,3 +40,7 @@ if st.button("Recommend"):
     st.subheader("Recommended Movies:")
     for i in scores:
         st.write(df.iloc[i[0]]["title"])
+
+#Footer
+st.markdown("---")
+st.markdown("🚀 Built by DK | AIML Mini Project")
