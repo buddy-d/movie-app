@@ -7,9 +7,10 @@ import os
 import pandas as pd
 
 # get absolute path of movies.csv in current folder
-csv_path = os.path.join(os.getcwd(), "movies.csv")
-movies = pd.read_csv(csv_path)
+df = pd.read_csv("movies.csv")
 
+#Debug: Show columns
+st.write(df.columns)
 
 # Convert text to numbers using TF-IDF
 tfidf = TfidfVectorizer(stop_words='english')
